@@ -1,0 +1,37 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block title %}{{ parent() }} - Admin - Les E-Books{% endblock %}
+
+{% block body %}
+    <h1>Tous les E-Books</h1>
+
+    <table class="table-ebook table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Images</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Contenu</th>
+                <th scope="col">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for e_book in e_books %}
+            <tr>
+                <td>{{ e_book.picture }}</td>
+                <td>{{ e_book.title }}</td>
+                <td>{{ e_book.content }}</td>
+                <td>
+                    <a class="btn btn-outline-info" href="{{ path('admin_e_book_show', {'id': e_book.id}) }}" roles="button">Détails</a>
+                    <a class="btn btn-outline-info" href="{{ path('admin_e_book_edit', {'id': e_book.id}) }}" roles="button">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn-add btn btn-success" href="{{ path('admin_e_book_new') }}" roles="button">Ajouter</a>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block title %}{{ parent() }} - Admin - Mofifier E-Book{% endblock %}
+
+{% block body %}
+    <div class="page-form-edit">
+        <h1>Mofifier E-Book</h1>
+
+        <div class="form-edit">
+            {{ include('admin/e_book_form.html.twig') }}
+        </div>
+
+        <div class="form-edit">
+            {{ include('admin/e_book_delete_form.html.twig') }}
+        </div>
+        <a href="{{ path('admin_e_books') }}">Retour sur les E-Books</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar %}
+
+<nav class="navbar navbar-dark bg-dark navbar-expand-xl header-nav fixed-top">
+    <a class="navbar-brand" href="{{path('seducer_home')}}">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+				<a class="nav-link" href="{{path('admin_home')}}">Accueil</a>
+			</li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{path('admin_articles')}}">Blog<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{path('admin_e_books')}}">Formations de séduction</a>
+            </li>
+            <li class="nav-item">
+                {# If admin is not connected he can see login button, if admin connects he can see logout button #}
+                {% if app.user %}
+                    <a class="nav-link nav-style" href="{{ path('app_logout') }}">
+                        Se déconnecter</a>
+                {% else %}
+                    <a class="nav-link nav-style" href="{{ path('app_login') }}">
+                        Se connecter</a>
+                {% endif %}
+			</li>
+        </ul>
+    </div>
+</nav>
+
+{% endblock %}

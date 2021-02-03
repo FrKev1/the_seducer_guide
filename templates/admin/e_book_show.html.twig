@@ -1,0 +1,37 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block title %}{{ parent() }} - Admin - L'e-Book{% endblock %}
+
+{% block body %}
+    <h1>L'e-Book</h1>
+
+    <table class="table-show table table-hover">
+        <tbody>
+            <tr>
+                <th scope="col">Id</th>
+                <td>{{ e_book.id }}</td>
+            </tr>
+            <tr>
+                <th scope="col">Image</th>
+                <td>{{ e_book.picture }}</td>
+            </tr>
+            <tr>
+                <th scope="col">Titre</th>
+                <td>{{ e_book.title }}</td>
+            </tr>
+            <tr>
+                <th scope="col">Contenu</th>
+                <td>{{ e_book.content }}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <th>
+                <a href="{{ path('admin_e_books') }}">Retour sur les E-books</a>
+            </th>
+        </tfoot>
+    </table>
+    <div class="button-action">
+        <a class="btn btn-success" href="{{ path('admin_e_book_edit', {'id': e_book.id}) }}">Modifier</a>
+        {{ include('admin/e_book_delete_form.html.twig') }}
+    </div>
+{% endblock %}

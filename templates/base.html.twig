@@ -1,13 +1,29 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+{# This is the base that all other views will extend #}
 
-        {% block javascripts %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}The Seducer Guide{% endblock %}</title>
+    {{ encore_entry_link_tags('app') }}
+</head>
+<body>
+    <header>
+    {% block navbar %}
+    {% endblock %}
+    </header>
+
+    <main>
+    {% block body %}
+    {% endblock %}
+    </main>
+
+    <footer>
+    {% block footer %}
+    {% endblock %}
+    </footer>
+    {% block javascript %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</body>
 </html>

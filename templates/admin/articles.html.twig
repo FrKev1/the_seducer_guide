@@ -1,0 +1,42 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block title %}{{ parent() }} - Admin - Les articles{% endblock %}
+
+{% block body %}
+    <h1>Tous les articles</h1>
+
+    <table class="table-articles table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Images</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Contenu</th>
+                <th scope="col">Date de publication</th>
+                <th scope="col">Date mis à jour</th>
+                <th scope="col">Publier ?</th>
+                <th scope="col">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.picture }}</td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.content }}</td>
+                <td>{{ article.publicationDate ? article.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article.lastUpdateDate ? article.lastUpdateDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article.isPublished ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a class="btn btn-outline-info" href="{{ path('admin_article_show', {'id': article.id}) }}" roles="button" >Détails</a>
+                    <a class="btn btn-outline-info" href="{{ path('admin_article_edit', {'id': article.id}) }}" roles="button" >Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn-add btn btn-success" href="{{ path('admin_article_new') }}" roles="button">Ajouter</a>
+{% endblock %}
