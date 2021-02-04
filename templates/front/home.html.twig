@@ -1,4 +1,34 @@
 {% extends 'front/front_layout.html.twig' %}
 
+{% block title %}{{ parent() }} - Home {% endblock %}
+
 {% block body %}
-{% endblock %} 
+    <h1>Conseils en séduction avec Kev</h1>
+    <div class"presentation">
+        <div class="pres-photo">
+            <img class="pres-img d-block w-100" src="/assets/images/moi.jpg">
+        </div>
+        <div class="pres-texte">
+            <p>
+                Je suis Kévin Francisco, coach n°1 des noobs séducteur pour comprendre et satisfaire les femmes. Depuis 2018, j’ai commencé
+                à m'intéresser au game de la séduction. J'ai déja aider quelques hommes dans leurs démarches : certains se sont détachés de relations toxiques avec succès, d’autres ont trouvé l’amour, d’autres encore vivent à fond leur célibat, épanouis comme jamais… Ils ont tous trouvé réponse à leurs questions… Réponses parfois inattendues !
+            </p>
+            <p>
+                J’ai conçu Le Seducer Guide pour vous aider à comprendre les femmes, la psychologie féminine et la logique féminine !
+                Depuis 1 ans maintenant, j'essaye de partager mon expérience et vous dire tous sur les femmes, sans tabou et sans langue de bois. Mon objectif est de vous aider à y voir plus clair dans vos relations pour avancer sereinement.
+            </p>
+        </div>
+    </div>
+    <h3>Les derniers arcticles publiés</h3>
+    <div class="row-image row justify-content-around">
+        {% for article in articles %}
+            <div class="bloc-article col-md-4 offset-1">
+                <h4>{{article.title}}</h4>
+                 <a href="{{ path('seducer_article', { id : article.id }) }}">
+                    <img class="d-block w-100 shadow p-1 mb-5 bg-white rounded" src=" /assets/images/uploads/{{ article.picture }}">  
+                </a>
+            </div>
+        {% endfor %}
+        <a class="btn btn-article" href="{{ path('seducer_blog') }}" roles="button">Voir les articles du blog</a>
+    </div>
+{% endblock %}

@@ -1,4 +1,20 @@
 {% extends 'front/front_layout.html.twig' %}
 
+{% block title %}{{ parent() }} - Formations de séduction{% endblock %}
 {% block body %}
+    <h1>Bienvenue sur le guide de la séduction</h1>
+        <h3>Comment comprendre et satisfaire les femmes</h3> 
+    <div class="row-image row justify-content-around">
+         {% for e_book in e_books %}
+            <div class="bloc-article col-md-4 offset-1">  
+                <a href="{{ path('seducer_e_book', { id : e_book.id }) }}">
+                    <img class="d-block w-100" src=" /assets/images/uploads/{{ e_book.picture }}">  
+                </a>
+                <h4>{{ e_book.title }}</h4>
+                <p>{{ e_book.description}}</p>
+                <a href="{{ path('seducer_e_book', { id : e_book.id }) }}">Présentation à la formation >></a>
+            </div>
+        {% endfor %}
+    </div>
+
 {% endblock %} 

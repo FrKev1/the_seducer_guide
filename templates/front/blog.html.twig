@@ -1,4 +1,20 @@
 {% extends 'front/front_layout.html.twig' %}
 
+{% block title %}{{ parent() }} - Blog {% endblock %}
+
 {% block body %}
+    <h1>Bienvenue sur le guide de la séduction</h1>
+        <h3>Comment comprendre et satisfaire les femmes</h3> 
+    <div class="row-image row justify-content-around">
+         {% for article in articles %}
+            <div class="bloc-article col-md-4 offset-1">  
+                <a href="{{ path('seducer_article', { id : article.id }) }}">
+                    <img class="d-block w-100 shadow p-1 mb-5 bg-white rounded" src=" /assets/images/uploads/{{ article.picture }}">  
+                </a>
+                <h4>{{ article.title }}</h4>
+                <p>{{ article.description}}</p>
+                <a class="btn btn-article" href="{{ path('seducer_article', { id : article.id }) }}" roles="button">Voir l'article</a>
+            </div>
+        {% endfor %}
+        </div>
 {% endblock %} 

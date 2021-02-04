@@ -1,0 +1,15 @@
+{% extends 'front/front_layout.html.twig' %}
+
+{% block title %}{{ parent() }} - E-Book - {{ e_book.id }} {% endblock %}
+
+{% block body %}
+<div class="row-image row justify-content-around">
+    <div class="col-md-4"> 
+        <h1>{{e_book.title}}</h1> 
+        <img class="d-block w-100" src=" /assets/images/uploads/{{ e_book.picture }}">
+    </div>
+    <div class="bloc-book col-md-6"> 
+        {{ content|raw }}
+    </div>
+</div>
+{% endblock %} 

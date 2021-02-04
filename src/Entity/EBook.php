@@ -4,9 +4,13 @@ namespace App\Entity;
 
 use App\Repository\EBookRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=EBookRepository::class)
+ * @Vich\Uploadable
  */
 class EBook
 {
@@ -31,6 +35,22 @@ class EBook
      * @ORM\Column(type="text", nullable=true)
      */
     private $content;
+
+    /**
+     * @Vich\UploadableField(mapping="e_book_photo", fileNameProperty="picture")
+     * @var File
+     */
+    private $e_bookPhoto;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updateAt;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
 
     public function getId(): ?int
     {
@@ -69,6 +89,49 @@ class EBook
     public function setContent(?string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getEBookPhoto(): ?File
+    {
+        return $this->e_bookPhoto;
+    }
+
+    public function setEBookPhoto(File $e_bookPhoto = null): self
+    {
+        $this->e_bookPhoto = $e_bookPhoto;
+        if ($e_bookPhoto) {
+            $this->updatedAt = new DateTime('now');
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdateAt()
+    {
+        return $this->updateAt;
+    }
+
+    /**
+     * @param mixed $updatedAt
+     */
+    public function setUpdateAt($updatedAt): void
+    {
+        $this->updateAt = $updateAt;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

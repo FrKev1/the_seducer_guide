@@ -77,7 +77,7 @@ class AdminArticleController extends AbstractController
      * @Route("/article/modifier/{id}", name="article_edit", methods={"GET","POST"})
      * @return Response
      */
-    public function articleEdit(Request $request, Article $article, EntityManagerInterface $entitymanager): Response
+    public function articleEdit(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);

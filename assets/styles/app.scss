@@ -1,1 +1,60 @@
 @import '~bootstrap/scss/bootstrap';
+
+html {
+    padding-top: 120px;
+}
+
+header, main {
+    width: 80%;
+    margin: auto;
+}
+
+main {
+    min-height: 100vh;
+}
+
+h1, h3 {
+    text-align: center;
+}
+
+.btn-article {
+    background-color: rgba(156, 25, 25, 0.801);
+}
+
+.bloc-article {
+    padding-top: 20px;
+}
+
+footer {
+    width: 100%;
+    margin-top: 4rem;
+    background-color: #2f3338;
+    min-height: 100%;
+    color: white;
+}
+
+.bloc-book {
+    margin-top: 100px;
+}
+
+.pres-photo {
+    width: 15%;
+    height: auto;
+}
+
+.pres-img{
+    border-radius: 50%;
+}
+
+.presentation {
+    width: 100%;
+    display: inline-block;
+}
+
+.pres-texte {
+    width: 80%;
+}
+
+.row-image {
+    padding: 5px;
+}

@@ -10,19 +10,19 @@
             <tr>
                 <th scope="col">Images</th>
                 <th scope="col">Titre</th>
-                <th scope="col">Contenu</th>
+                <th scope="col">Description</th>
                 <th scope="col">actions</th>
             </tr>
         </thead>
         <tbody>
         {% for e_book in e_books %}
             <tr>
-                <td>{{ e_book.picture }}</td>
+                <td><img src="/assets/images/uploads/{{ e_book.picture }}"</td>
                 <td>{{ e_book.title }}</td>
-                <td>{{ e_book.content }}</td>
+                <td>{{ e_book.description }}</td>
                 <td>
-                    <a class="btn btn-outline-info" href="{{ path('admin_e_book_show', {'id': e_book.id}) }}" roles="button">Détails</a>
-                    <a class="btn btn-outline-info" href="{{ path('admin_e_book_edit', {'id': e_book.id}) }}" roles="button">Modifier</a>
+                    <a class="btn btn-outline-dark" href="{{ path('admin_e_book_show', {'id': e_book.id}) }}" roles="button">Détails</a>
+                    <a class="btn btn-outline-dark" href="{{ path('admin_e_book_edit', {'id': e_book.id}) }}" roles="button">Modifier</a>
                 </td>
             </tr>
         {% else %}

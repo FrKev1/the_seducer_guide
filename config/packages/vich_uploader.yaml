@@ -1,0 +1,14 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        article_photo:
+            # alias qui nous permet d'accéder à nos images depuis le navigateur
+            uri_prefix: /assets/images/
+            # Chemin vers le dossier de stockage
+            upload_destination: '%upload_directory%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        e_book_photo:
+            uri_prefix: /assets/images/
+            upload_destination: '%upload_directory%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

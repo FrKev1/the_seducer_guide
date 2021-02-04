@@ -4,10 +4,16 @@ namespace App\Entity;
 
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
+ * @Vich\Uploadable
  */
+ 
 class Article
 {
     /**
@@ -46,6 +52,22 @@ class Article
      * @ORM\Column(type="boolean")
      */
     private $isPublished;
+
+    /**
+     * @Vich\UploadableField(mapping="article_photo", fileNameProperty="picture")
+     * @var File
+     */
+    private $articlePhoto;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updateAt;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
 
     public function getId(): ?int
     {
@@ -120,6 +142,49 @@ class Article
     public function setIsPublished(bool $isPublished): self
     {
         $this->isPublished = $isPublished;
+
+        return $this;
+    }
+
+    public function getArticlePhoto(): ?File
+    {
+        return $this->articlePhoto;
+    }
+
+    public function setArticlePhoto(File $articlePhoto = null): self
+    {
+        $this->articlePhoto = $articlePhoto;
+        if ($articlePhoto) {
+            $this->updatedAt = new DateTime('now');
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdateAt()
+    {
+        return $this->updateAt;
+    }
+
+    /**
+     * @param mixed $updatedAt
+     */
+    public function setUpdateAt($updatedAt): void
+    {
+        $this->updateAt = $updateAt;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
