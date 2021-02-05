@@ -3,7 +3,7 @@
 {% block navbar %}
 
 <nav class="navbar navbar-dark bg-dark navbar-expand-xl header-nav fixed-top">
-    <a class="navbar-brand" href="{{path('seducer_home')}}">Home</a>
+    <a class="navbar-brand" href="{{path('seducer_home')}}"><img src="/assets/images/logo.png" class="logoSG" alt="logo Seducer Guide"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -39,10 +39,10 @@
 {% block footer %}
     <footer>
             <h3>Mes réseaux</h3>
-            <div class="row-footer row justify-content-around">
-                <p>Facebook</p>
-                <p>Facebook</p>
-                <p>Facebook</p>
+            <div class="row justify-content-around">
+                <a class="reseau" href="https://www.facebook.com/kevFr37"><img src="/assets/images/facebook.png"></a>
+                <a class="reseau" href="https://www.linkedin.com/in/k%C3%A9vin-francisco-223178116/"><img src="/assets/images/linkedin.png"></a>
+                <a class="reseau" href="https://github.com/"><img src="/assets/images/github.png"></a>
             </div>
     </footer> 
 {% endblock %}

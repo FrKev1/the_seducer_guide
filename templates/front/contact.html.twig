@@ -3,5 +3,25 @@
 {% block title %}{{ parent() }} - Me contacter {% endblock %}
 
 {% block body %}
+    <div id="formContact">
+    <h1>Contacter the french noob seducer<img src="/assets/images/as.png"></h1>
+    <hr>
 
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col">{{ form_row(form.fullName) }}</div>
+        </div>
+        <div class="row">
+            <div class="col">{{ form_row(form.email) }}</div>
+        </div>
+        <div class="row">
+            <div class="col">{{ form_row(form.subject) }}</div>
+        </div>
+        <div class="row">
+            <div class="col">{{ form_row(form.message) }}</div>
+        </div>
+        {{ form_widget(form) }}
+        <button class="btn btn-article">Envoyer</button>
+    {{ form_end(form) }}
+</div>
 {% endblock %} 

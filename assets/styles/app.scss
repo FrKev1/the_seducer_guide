@@ -1,7 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 
+
+/*Base du css hauteur et largeur des pages et la police*/
 html {
-    padding-top: 120px;
+    padding-top: 170px;
+}
+
+body {
+    height: 100%;
+    font-family: 'Libre Baskerville', serif;
 }
 
 header, main {
@@ -17,12 +24,27 @@ h1, h3 {
     text-align: center;
 }
 
-.btn-article {
-    background-color: rgba(156, 25, 25, 0.801);
+
+/*logo nav et home*/
+.logoSG {
+    height: auto;
+    width: 14vh;
 }
 
-.bloc-article {
-    padding-top: 20px;
+.logo-home{
+    height: auto;
+    width: 25vh;
+}
+
+
+/*Navbar et footer*/
+.nav-link:hover {
+    color: rgba(226, 61, 61, 0.801) !important;
+}
+
+.reseau:hover {
+    transform: scale(1.2);
+    transition: transform 1s;
 }
 
 footer {
@@ -31,13 +53,60 @@ footer {
     background-color: #2f3338;
     min-height: 100%;
     color: white;
+    padding-bottom: 10px;
+    overflow-x: hidden;
+}
+
+footer h3 {
+    margin-bottom: 15px;
+}
+
+
+
+
+/*Style des boutons*/
+.btn-article {
+    background-color: rgba(226, 61, 61, 0.801);
+    padding: 10px;
+    box-shadow: 3px 3px rgba(27, 27, 27, 0.658);
+}
+
+.btn-article:hover {
+    background-color: rgba(180, 42, 42, 0.801);
+    box-shadow: 4px 4px rgba(27, 27, 27, 0.658);
+    transform: scale(1.1);
+    transition: transform 1s;
+}
+
+/*page blog et formation*/
+.bloc-article {
+    padding-top: 20px;
 }
 
 .bloc-book {
     margin-top: 100px;
 }
 
+.bloc-article img {
+	opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.bloc-article:hover img {
+	opacity: .6;
+}
+
+table img {
+    max-width: 60%;
+    max-height: 60%;
+}
+
+
+/*Page home*/
+
 .pres-photo {
+ 
     width: 15%;
     height: auto;
 }
@@ -46,15 +115,47 @@ footer {
     border-radius: 50%;
 }
 
-.presentation {
-    width: 100%;
-    display: inline-block;
-}
-
 .pres-texte {
-    width: 80%;
+    background-color: lightgrey;
+    padding: 10px;
+    border-radius: 10px;
 }
-
 .row-image {
     padding: 5px;
+}
+
+.titre {
+    margin-top: 20px;
+}
+
+.temoins {
+    background-color: lightgrey;
+    width: 100%;
+    height: auto;
+    margin: 10px;
+}
+
+
+/*Form connexion*/
+.form-login {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-login .form-control {
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-login img {
+    width: 72px;
+    height: 72px;
+}
+
+.btn-block {
+    margin-top: 10px;
 }

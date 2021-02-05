@@ -3,23 +3,18 @@
 {% block title %}{{ parent() }} - Home {% endblock %}
 
 {% block body %}
-    <h1>Conseils en séduction avec Kev</h1>
-    <div class"presentation">
-        <div class="pres-photo">
-            <img class="pres-img d-block w-100" src="/assets/images/moi.jpg">
+    <h1><img class="logo-home" src="/assets/images/logo.png">The Seducer Guide</h1>
+    <h3>Conseils en séduction avec Kev</h3>
+        <div class="pres-texte row justify-content-around">
+            <div class="pres-photo">
+                <img class="pres-img d-block w-100" src="/assets/images/moi.jpg">
+            </div>
+            Je suis Kévin Francisco, coach n°1 des noobs séducteur pour comprendre et satisfaire les femmes. Depuis 2018, j’ai commencé
+            à m'intéresser au game de la séduction. J'ai déja aider quelques hommes dans leurs démarches : certains se sont détachés de relations toxiques avec succès, d’autres ont trouvé l’amour, d’autres encore vivent à fond leur célibat, épanouis comme jamais… Ils ont tous trouvé réponse à leurs questions… Réponses parfois inattendues !</br></br>
+            J’ai conçu Le Seducer Guide pour vous aider à comprendre les femmes, la psychologie féminine et la logique féminine !
+            Depuis 1 ans maintenant, j'essaye de partager mon expérience et vous dire tous sur les femmes, sans tabou et sans langue de bois. Mon objectif est de vous aider à y voir plus clair dans vos relations pour avancer sereinement.
         </div>
-        <div class="pres-texte">
-            <p>
-                Je suis Kévin Francisco, coach n°1 des noobs séducteur pour comprendre et satisfaire les femmes. Depuis 2018, j’ai commencé
-                à m'intéresser au game de la séduction. J'ai déja aider quelques hommes dans leurs démarches : certains se sont détachés de relations toxiques avec succès, d’autres ont trouvé l’amour, d’autres encore vivent à fond leur célibat, épanouis comme jamais… Ils ont tous trouvé réponse à leurs questions… Réponses parfois inattendues !
-            </p>
-            <p>
-                J’ai conçu Le Seducer Guide pour vous aider à comprendre les femmes, la psychologie féminine et la logique féminine !
-                Depuis 1 ans maintenant, j'essaye de partager mon expérience et vous dire tous sur les femmes, sans tabou et sans langue de bois. Mon objectif est de vous aider à y voir plus clair dans vos relations pour avancer sereinement.
-            </p>
-        </div>
-    </div>
-    <h3>Les derniers arcticles publiés</h3>
+    <h3 class="titre">Les derniers arcticles publiés</h3>
     <div class="row-image row justify-content-around">
         {% for article in articles %}
             <div class="bloc-article col-md-4 offset-1">
@@ -30,5 +25,14 @@
             </div>
         {% endfor %}
         <a class="btn btn-article" href="{{ path('seducer_blog') }}" roles="button">Voir les articles du blog</a>
+    </div>
+    <h4 class="titre">Les témoignages</h4>
+    <div class="container">
+        <div class="row">
+            <div class="temoins col-md-2">Julien</div>
+            <div class="temoins col-md-2">Vincent</div>
+            <div class="temoins col-md-2">Steven</div>
+            <div class="temoins col-md-2">Kévin</div>
+        </div>
     </div>
 {% endblock %}

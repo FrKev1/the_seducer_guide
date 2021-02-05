@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% if data.type == 'contact' %}
+                Nouvelle demande d'informations
+            {% endif %}
+        </title>
+    </head>
+    <body>
+    {% if data.type == 'contact' %}
+        <p>Vous venez de recevoir une nouvelle demande d'informations</p>
+    {% endif %}
+    </body>
+</html>

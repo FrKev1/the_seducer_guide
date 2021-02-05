@@ -8,7 +8,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\ArticleRepository;
 use App\Repository\EBookRepository; 
-
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
+use App\Form\ContactType;
+use App\DataClass\Contact;
+use DateTime;
 
 /**
  * Creates views that allow users to see the different pages
@@ -16,6 +20,42 @@ use App\Repository\EBookRepository;
  */
 class FrontController extends AbstractController
 {
+
+    /**
+     * Displays contact page
+     * @Route("/me-contacter", name="contact")
+     * @return Response
+     */
+    public function contact(Request $request, MailerInterface $mailer): Response
+    {
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // add date of message submission
+            $contact->setSubmitDate(new DateTime('now'));
+
+            // add type of message (for after_submit view purposes)
+            $contact->setType('contact'); 
+
+            // send mail
+            $email = (new Email())
+                ->from('email_from@example.com')
+                ->to('email_to@example.com')
+                ->subject($contact->getSubject())
+                ->html($this->renderView('email.html.twig', [
+                    'data' => $contact,
+                ]));
+                
+            $mailer->send($email);
+        }
+
+        return $this->render('front/contact.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
     /**
      * @Route("/", name="home")
      */
@@ -79,14 +119,5 @@ class FrontController extends AbstractController
             'e_book' => $e_book,
             'content' => $content,
         ]);
-    }
-
-    /**
-     * @Route("/me-contacter", name="contact")
-     * @return Response
-     */
-    public function contact(): Response
-    {
-        return $this->render('front/contact.html.twig');
     }
 }
